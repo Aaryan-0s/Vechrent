@@ -1,0 +1,84 @@
+{% extends "admin/admin.html" %}
+
+{%block css%}
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/admin.css')}}">
+{%endblock css%}
+
+{% block admincontent %}
+
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/admin/addvenue-style.css')}}" type="text/css"> -->
+
+<div class="container ven-content" style="height: 180vh;">
+    <div class="vehicle-info-1 mt-3">
+        <h3 class="add-heading"> {{legend}} </h3>
+    </div>
+    <hr>
+
+    <div class="vehicle-form">
+        <form action="" method="POST" id="formvehicle" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <div class="form-group mb-4">
+                {{ form.vehicle_name.label(class="form-control-label") }}
+                {% if form.vehicle_name.errors %}
+                {{ form.vehicle_name(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.vehicle_name.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.vehicle_name(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+           
+
+            <div class="form-group mb-4">
+                {{ form.Description.label(class="form-control-label" ) }}
+                {% if form.Description.errors %}
+                {{ form.Description(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.Description.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.Description(rows='10',cols='92') }}
+                {% endif %}            
+             </div>
+            <div class="form-group mb-4">
+                {{ form.Price.label(class="form-control-label") }}
+                {% if form.Price.errors %}
+                {{ form.Price(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.Price.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ form.Price(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            
+         
+            <div class="form-group mb-4">
+                {{ form.picture.label(class="form-control-label") }}
+                <div>
+                    {% if form.picture.errors %}
+                    {{ form.picture(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.picture.label.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{ form.picture(class="form-control form-control-lg") }}
+                    {% endif %}               
+                 </div>
+            </div>
+            <div class="form-group mb-4">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock admincontent %}

@@ -1,0 +1,43 @@
+{%extends 'layout.html'%}
+{%block css%}
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
+{%endblock css%}
+{%block content%}
+
+<section class="services" id="services">
+    <div class="heading">
+        <span>Best services </span>
+        <h1>Explore out top deals <br> from top rated dealers</h1>
+    </div>
+    
+    <div class="services-container">
+        {%for vehicles in vehicle.items%}
+        <div class="box">
+            <div class="box-img">
+                <img src="{{url_for('static',filename='img/vehicle/'+vehicles.image_file)}}" alt="">
+            </div>
+            <p>2017</p>
+            <h3>{{vehicles.vehicle_name}}</h3>
+            <h2>${{vehicles.price}} <span>/month</span></h2>
+            <a href="{{url_for('vehicle_route.vehicle_detail',vehicle_id=vehicles.vehicle_id)}}" class="btn">Learn now </a>
+        </div>
+        {%endfor %}
+        
+    </div>
+    
+</section>
+<div class="pagi">
+{% for page_num in vehicle.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+{% if page_num %}
+
+  {% if vehicle.page == page_num %}
+    <a class="btn btn-info mb-4" href="{{ url_for('vehicle_route.vehicle_post', page=page_num) }}">{{ page_num }}</a>
+  {% else %}
+    <a class="btn btn-outline-info mb-4" href="{{ url_for('vehicle_route.vehicle_post', page=page_num) }}">{{ page_num }}</a>
+  {% endif %}
+{% else %}
+  ...
+{% endif %}
+{% endfor %}
+</div>
+{% endblock content%}

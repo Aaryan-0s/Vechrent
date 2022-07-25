@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+
+{%block css%}
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{{url_for('static',filename='css/login.css')}}">
+<style>
+    .newsletter {
+        display: none;
+    }
+</style>
+{%endblock css%}
+
+
+{% block content %}
+
+
+
+
+
+<div class="login-wrap">
+    <div class="login-html">
+
+
+
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign
+            In</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign
+            Up</label>
+
+        <div class="login-form">
+            <form class="sign-in-htm" method="post">
+                <div class="group">
+                    <label for="user" class="label">Username</label>
+                    <input id="user" type="text" class="input" name="username-login">
+                </div>
+                <div class="group">
+                    <div class="input-field">
+                        <label for="pass" class="label">Password</label>
+                        <input id="pass" type="password" class="input" data-type="password" name="password-login">
+                        <span class="eye text-secondary"  onclick="hide()">
+                            <i id="unhide" class="fas fa-eye"></i>
+                            <i id="hide" class="fas fa-eye-slash" style="margin-left: 1px;"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="group">
+                    <a href="{{url_for('users.reset_request')}}">Forgot password?</a>
+                </div>
+                <div class="group">
+                    <button type="submit" class="button" value="signin" name="btn">Sign In</button>
+                </div>
+                <div class="hr"></div>
+                <div class="foot-lnk">
+                    <label>Already have an account?</a>
+                        <label for="tab-2" class="signup">SIGN UP</a>
+                </div>
+            </form>
+
+            <form class="sign-up-htm" method="post">
+                <div class="group">
+                    <label for="user" class="label">Username</label>
+                    <input id="user" type="text" class="input" name="username" required minlength="5">
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">Email Address</label>
+                    <input id="pass" type="email" class="input" name="email" required>
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">Phone Number</label>
+                    <input id="pass" type="number" class="input" name="mobileNum" required maxlength="10">
+                </div>
+                <div class="group">
+                    <div class="input-field">
+                        <label for="pass" class="label">Password</label>
+                        <input id="pass-signup" type="password" class="input" data-type="password" name="password-signup">
+                        <span class="eye text-secondary"  onclick="hideup()">
+                            <i id="unhide-signup" class="fas fa-eye"></i>
+                            <i id="hide-signup" class="fas fa-eye-slash" style="margin-left: 1px;"></i>
+                        </span>
+                    </div>
+
+
+                </div>
+
+
+                <div class="group">
+                    <button type="submit" class="button" value="signup" name="btn">Sign Up</button>
+                </div>
+                <div class="hr"></div>
+                <div class="foot-lnk">
+                    <label>Already Member?</a>
+                        <label for="tab-1" class="signin">SIGN IN</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+</script>
+
+{% endblock content %}

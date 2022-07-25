@@ -1,0 +1,34 @@
+{%extends "admin/admin.html"%}
+{%block css%}
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/admin.css')}}">
+{%endblock css%}
+
+{%block admincontent%}
+
+<table id="data" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for users in Users %}
+        <tr>
+            <form method="POST" >
+                <td><input type="hidden" name="Id" value="{{ users.id }}">{{ users.id }}</td>
+                <td><input type="hidden" name="Username" value="{{ users.username }}"> {{ users.username }}
+                </td>
+                <td><input type="hidden" name="Email" value="{{ users.email }}">{{ users.email }}</td>
+
+                <td><input class="form__submit form__input" type="submit" value="delete" name="delete"></td>
+            </form>
+        </tr>
+            
+        {% endfor %}
+    </tbody>
+</table>
+
+{%endblock admincontent%}

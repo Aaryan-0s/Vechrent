@@ -1,0 +1,86 @@
+.content-wrapper {
+  margin-top: 67px;
+  margin-bottom: 94px;
+}
+
+.tb-container {
+  height: auto;
+  padding-top: 30px !important;
+  /* width: 100%; */
+}
+
+.tb-container .titleCtn {
+  width: 81%;
+  height: 50px;
+  background-color: #fff;
+  padding-left: 20px;
+  padding-top: 8px;
+  margin-top: 20px;
+  margin-left: 129px;
+  font-weight: bold;
+}
+
+.tb-container .titleCtn a .backtobook {
+  background-color: lightgray;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 13px;
+  margin-top: -10px;
+}
+
+.titleCtn h4 {
+  font-size: 15px;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.titleCtn h4 #totalBooking {
+  color: #1EA43A;
+  font-size: 14px;
+}
+
+table {
+  background-color: #fff;
+  margin-top: 50px;
+  margin-left: 129px;
+  width: 81%;
+  /* padding: 10px 10px; */
+  height: 100px;
+}
+
+table tr td .wishlistBtn {
+  background-color: #fff;
+  border: 0;
+  padding: 8px;
+  font-size: 13px;
+  margin-top: -10px;
+}
+
+.acc-container {
+  width: 51%;
+  margin-left: 350px;
+  padding-top: 70px;
+  background-color: #fff;
+  height: 100%;
+}
+
+.footer-section .footer-cta,
+.footer-widget,
+#semi-footer {
+  display: none;
+}
+
+.footer-section .copyright-area {
+  margin-top: -50px;
+}
+
+
+@media only screen and (max-width:992px) {
+
+  .acc-container,
+  .tb-container .titleCtn,
+  .tb-container table {
+    width: 100%;
+    margin: auto;
+  }
+}

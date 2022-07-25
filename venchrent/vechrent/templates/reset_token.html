@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+
+{%block css%}
+
+{%endblock css%}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/booking-style.css') }}">
+
+<div class="acc-container">
+
+    <div class="account-info pl-5">
+        <h3 class="account-head">Reset Password</h3>
+    </div>
+    <hr>
+
+    <div class="account-info-1 pl-5 pr-5">
+        <form action="#" method="post" id="account-form" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <div class="form-group mb-3">
+                {{ form.password.label(class="form-control-label") }}
+
+                {% if form.password.errors %}
+                {{ form.password(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.password.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.password(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group mb-3">
+                {{ form.confirm_password.label(class="form-control-label") }}
+
+                {% if form.confirm_password.errors %}
+                {{ form.confirm_password(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.confirm_password.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.confirm_password(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            {{ form.submit(class="btn btn-outline-info") }}
+
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,39 @@
+{%extends "admin/admin.html"%}
+{%block css%}
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/admin.css')}}">
+{%endblock css%}
+
+{%block admincontent%}
+
+<table id="data" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Vehicle Id</th>
+            <th>Vehicle model</th>
+            <th>Price</th>
+            <th>Update</th>
+            <th>Delete</th>
+            <th>View</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for vehicles in vehicle %}
+        <tr>
+            <form method="POST" >
+                <td><input type="hidden" name="Id" value="{{ vehicles.vehicle_id }}">{{ vehicles.vehicle_id }}</td>
+                <td><input type="hidden" name="Model" value="{{ vehicles.vehicle_name }}"> {{vehicles.vehicle_name }}
+                </td>
+                <td><input type="hidden" name="Price" value="{{vehicles.price }}">{{ vehicles.price }}</td>
+
+                <td><a href="{{url_for('vehicle_route.update_vehicle',vehicle_id=vehicles.vehicle_id)}}" ><input type="button" value="edit" ></a></td>
+                <td><input class="form__submit form__input" type="submit" value="delete" name="delete"></td>
+                
+            </form>
+        </tr>
+            
+        {% endfor %}
+    </tbody>
+</table>
+
+{%endblock admincontent%}

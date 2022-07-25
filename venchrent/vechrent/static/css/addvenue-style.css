@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Rubik&family=Ubuntu:wght@400;500&display=swap');
+
+:root {
+    --primary: #79aec8;
+    --secondary-color: #e8e8e8;
+    --border-color: #ccc;
+    --link-hover-color: #036;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif !important;
+    /* text-decoration: none; */
+    overflow-x: hidden;
+}
+
+
+.ven-content{
+    padding-top: 95px !important;
+}
+

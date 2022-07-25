@@ -1,0 +1,39 @@
+{%extends "layout.html"%}
+{%block css%}
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/rentlist.css')}}">
+{%endblock css%}
+
+{%block content%}
+
+<table id="data" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Vehicle Id</th>
+            <th>Vehicle model</th>
+            <th>Price</th>
+            <th>Booked for </th>
+            
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for rentals in rental %}
+        <tr>
+            <form method="POST" >
+                <td>{{ rentals.vehicle_id }}</td>
+                <td> {{rentals.authors.vehicle_name }}   
+                </td>
+                <td>{{ rentals.authors.price }}</td>
+                <td>{{rentals.rented_from}}</td>
+
+                
+                
+            </form>
+        </tr>
+            
+        {% endfor %}
+    </tbody>
+</table>
+
+{%endblock content%}
